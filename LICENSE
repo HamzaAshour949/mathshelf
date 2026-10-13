@@ -1,0 +1,13 @@
+Copyright (c) 2026 Hamza Ashour. All rights reserved.
+
+This repository holds "Mathshelf", a website of games, videos and other maths resources for students.
+The site, its code, and the games on it (their text, pictures and animations) are made by Hamza Ashour.
+No licence is granted to copy, modify, redistribute, re-host or create derivative works from any part of them
+without written permission from the author.
+Students and teachers may use the site at https://hamzaashour949.github.io/mathshelf/.
+
+Videos shown on the site are collected by Mr. Hamza Ashour from YouTube. They belong to their creators,
+are only linked and played through YouTube's own player, and are not covered by this notice.
+
+Third-party libraries included in the built site keep their own licences: React (MIT, © Meta Platforms, Inc.
+and affiliates).

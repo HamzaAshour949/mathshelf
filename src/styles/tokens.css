@@ -1,0 +1,113 @@
+/* Design tokens. Colour, type and motion are defined once and reused everywhere. */
+:root {
+  --bg: #f7f7f4;
+  --surface: #ffffff;
+  --surface-2: #efefea;
+  --ink: #14161c;
+  --ink-2: #464b58;
+  --ink-3: #686e7c;
+  --line: #e2e2dc;
+  --line-2: #cdcdc4;
+
+  --accent: #2a4bd7;
+  --accent-ink: #ffffff;
+  --accent-soft: #e9edfc;
+  --accent-line: #c3cdf6;
+
+  --made-ink: #2a4bd7;
+  --made-soft: #e9edfc;
+  --collected-ink: #7a5416;
+  --collected-soft: #f5eddb;
+
+  /* the three sides in the Pythagoras picture: a, b and c */
+  --ga: #12806f;
+  --gb: #b86e00;
+  --gc: #5b45d6;
+  --ga-soft: rgba(18, 128, 111, 0.17);
+  --gb-soft: rgba(184, 110, 0, 0.17);
+  --gc-soft: rgba(91, 69, 214, 0.15);
+  --tri: rgba(20, 22, 28, 0.1);
+
+  --shadow: 0 12px 28px -16px rgba(20, 22, 28, 0.35);
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", "Noto Sans", "Noto Sans Arabic", Tahoma, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Noto Serif", Georgia, serif;
+  --font-math: "Cambria Math", "STIX Two Math", "Noto Serif", Georgia, serif;
+  --track: -0.02em;
+
+  /* motion: one curve, three speeds, used by every animation on the site */
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --dur-1: 160ms;
+  --dur-2: 320ms;
+  --dur-3: 520ms;
+
+  --header-h: 0px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1115;
+    --surface: #171a20;
+    --surface-2: #1e222a;
+    --ink: #eceff4;
+    --ink-2: #b4bac8;
+    --ink-3: #8f96a5;
+    --line: #272c35;
+    --line-2: #353b47;
+    --accent: #8aa0ff;
+    --accent-ink: #0c1234;
+    --accent-soft: #1b2342;
+    --accent-line: #34407a;
+    --made-ink: #9db0ff;
+    --made-soft: #1b2342;
+    --collected-ink: #e3bd69;
+    --collected-soft: #2a2417;
+    --ga: #3fcdb5;
+    --gb: #f2b24c;
+    --gc: #a79bff;
+    --ga-soft: rgba(63, 205, 181, 0.2);
+    --gb-soft: rgba(242, 178, 76, 0.2);
+    --gc-soft: rgba(167, 155, 255, 0.2);
+    --tri: rgba(236, 239, 244, 0.12);
+    --shadow: 0 12px 28px -16px rgba(0, 0, 0, 0.7);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1115;
+  --surface: #171a20;
+  --surface-2: #1e222a;
+  --ink: #eceff4;
+  --ink-2: #b4bac8;
+  --ink-3: #8f96a5;
+  --line: #272c35;
+  --line-2: #353b47;
+  --accent: #8aa0ff;
+  --accent-ink: #0c1234;
+  --accent-soft: #1b2342;
+  --accent-line: #34407a;
+  --made-ink: #9db0ff;
+  --made-soft: #1b2342;
+  --collected-ink: #e3bd69;
+  --collected-soft: #2a2417;
+  --ga: #3fcdb5;
+  --gb: #f2b24c;
+  --gc: #a79bff;
+  --ga-soft: rgba(63, 205, 181, 0.2);
+  --gb-soft: rgba(242, 178, 76, 0.2);
+  --gc-soft: rgba(167, 155, 255, 0.2);
+  --tri: rgba(236, 239, 244, 0.12);
+  --shadow: 0 12px 28px -16px rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+
+/* Arabic joins its letters, so tracking must stay at zero. Pages are a little roomier too. */
+:root:lang(ar) {
+  --track: 0;
+}
+
+@media (min-width: 760px) {
+  :root { --header-h: 4.1rem; }
+}
