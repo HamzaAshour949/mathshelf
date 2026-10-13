@@ -47,10 +47,11 @@ function Videos({ year }) {
       {units.map((unit) => {
         const n = unit.lessons.reduce((sum, l) => sum + l.videos.length, 0);
         let card = 0;
+        const uid = `unit-${unit.name.replace(/\s+/g, '-')}`;
         return (
-          <section key={unit.name} className="unit" aria-labelledby={`u-${unit.name}`}>
+          <section key={unit.name} className="unit" aria-labelledby={uid}>
             <header className="unit-head">
-              <h2 id={`u-${unit.name}`}><bdi lang="en">{unit.name}</bdi></h2>
+              <h2 id={uid}><bdi lang="en">{unit.name}</bdi></h2>
               <p>{tc('video', n)}</p>
             </header>
 

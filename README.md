@@ -13,12 +13,12 @@ The site is in English and in Arabic. Lesson names and game names stay in Englis
 
 ## On the shelf now
 
-**Year 9**
+- **Year 7**: videos for Unit 2 (divisibility, factors and primes, negative numbers, squares and roots, calculations).
+- **Year 8**: videos for Unit 2 (one-step, two-step and more complex equations, formulae).
+- **Year 9**: videos for Unit 1 and Unit 2, and the game Pythagorean Theorem (drag the small squares into the big square on the hypotenuse; idea by Ms. Nour Kaware).
+- **Year 10**: videos for Unit 2 (real numbers, exponents, functions, inverses, special functions, transformations).
 
-- Videos for Unit 1: 1.1 STEM: Powers of 10, 1.2 Calculating and estimating, 1.3 Indices, 1.4 Standard form.
-- Game: Pythagorean Theorem. Drag the small squares into the big square on the hypotenuse. Idea by Ms. Nour Kaware.
-
-Years 7, 8 and 10 have their pages ready and will fill up as resources are shared.
+Cognito is the first choice for every video. Other channels are used only where Cognito has no video that covers the lesson.
 
 ## Credits
 
