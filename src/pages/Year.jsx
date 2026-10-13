@@ -6,9 +6,10 @@ import { SegNav } from '../components/SegNav.jsx';
 import { VideoCard, VideoDialog } from '../components/Video.jsx';
 
 const lessonId = (code) => `lesson-${code.replace('.', '-')}`;
+const unitId = (name) => `unit-${name.replace(/\s+/g, '-')}`;
 
-// Highlights the lesson that is currently at the top of the screen.
-function useActiveLesson(ids) {
+// Highlights the lesson (or unit) that is currently at the top of the screen.
+function useActiveId(ids) {
   const [active, setActive] = useState(ids[0]);
   useEffect(() => {
     if (typeof IntersectionObserver === 'undefined') return undefined;
@@ -32,26 +33,40 @@ function Videos({ year }) {
   const [playing, setPlaying] = useState(null);
   const opener = useRef(null);
   const units = CATALOG[year].units;
-  const ids = useMemo(() => units.flatMap((u) => u.lessons.map((l) => lessonId(l.code))), [units]);
-  const [active, setActive] = useActiveLesson(ids);
+  const lessonIds = useMemo(() => units.flatMap((u) => u.lessons.map((l) => lessonId(l.code))), [units]);
+  const unitIds = useMemo(() => units.map((u) => unitId(u.name)), [units]);
+  const [active, setActive] = useActiveId(lessonIds);
+  const [activeUnit, setActiveUnit] = useActiveId(unitIds);
 
   if (!units.length) return <Empty kind="videos" year={year} />;
 
-  const jump = (id) => {
-    setActive(id);
+  const jump = (id, setter) => {
+    setter(id);
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
     <>
+      {units.length > 1 && (
+        <SegNav
+          className="unit-jump"
+          label={t('videos.units')}
+          items={units.map((u) => ({
+            key: u.name,
+            active: activeUnit === unitId(u.name),
+            onClick: () => jump(unitId(u.name), setActiveUnit),
+            label: <bdi lang="en">{u.name}</bdi>,
+          }))}
+        />
+      )}
       {units.map((unit) => {
         const n = unit.lessons.reduce((sum, l) => sum + l.videos.length, 0);
         let card = 0;
-        const uid = `unit-${unit.name.replace(/\s+/g, '-')}`;
+        const uid = unitId(unit.name);
         return (
-          <section key={unit.name} className="unit" aria-labelledby={uid}>
+          <section key={unit.name} id={uid} className="unit" aria-labelledby={`${uid}-h`}>
             <header className="unit-head">
-              <h2 id={uid}><bdi lang="en">{unit.name}</bdi></h2>
+              <h2 id={`${uid}-h`}><bdi lang="en">{unit.name}</bdi></h2>
               <p>{tc('video', n)}</p>
             </header>
 
@@ -61,7 +76,7 @@ function Videos({ year }) {
               items={unit.lessons.map((l) => ({
                 key: l.code,
                 active: active === lessonId(l.code),
-                onClick: () => jump(lessonId(l.code)),
+                onClick: () => jump(lessonId(l.code), setActive),
                 label: <bdi lang="en">{l.code}</bdi>,
               }))}
             />

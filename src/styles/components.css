@@ -143,6 +143,9 @@
 [data-active="true"] .count { background: var(--accent-soft); color: var(--accent); }
 .tab-body { animation: page-in var(--dur-3) var(--ease) both; }
 
+.unit-jump { margin-bottom: 2rem; }
+.unit { scroll-margin-top: calc(var(--header-h) + 1rem); }
+.unit + .unit { margin-top: 3.25rem; padding-top: 2.25rem; border-top: 1px solid var(--line); }
 .unit-head { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap; margin-bottom: 1rem; }
 .unit-head h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
 .unit-head p { color: var(--ink-3); font-size: .95rem; }

@@ -24,6 +24,7 @@ export const STRINGS = {
     'tab.aria': 'Resource types',
 
     'videos.jump': 'Jump to a lesson',
+    'videos.units': 'Jump to a unit',
     'video.play': 'Play',
     'video.watchYT': 'Watch on YouTube',
     'video.on': '{channel} on YouTube',
@@ -75,6 +76,7 @@ export const STRINGS = {
     'tab.aria': 'أنواع المصادر',
 
     'videos.jump': 'انتقل إلى درس',
+    'videos.units': 'انتقل إلى وحدة',
     'video.play': 'تشغيل',
     'video.watchYT': 'المشاهدة على YouTube',
     'video.on': '{channel} على YouTube',
