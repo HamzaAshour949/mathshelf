@@ -46,7 +46,9 @@ export function VideoCard({ video, index, onPlay }) {
 export function VideoDialog({ video, onClose }) {
   const { t } = useApp();
   const ref = useRef(null);
+  const frame = useRef(null);
   const [closing, setClosing] = useState(false);
+  const canFull = !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
 
   useEffect(() => {
     const d = ref.current;
@@ -54,6 +56,30 @@ export function VideoDialog({ video, onClose }) {
     document.documentElement.classList.add('locked');
     return () => document.documentElement.classList.remove('locked');
   }, []);
+
+  // Full screen on a phone turns it sideways by itself. This covers our button and the player's own
+  // full-screen button. Desktops and iPhones refuse the rotation, which is fine.
+  useEffect(() => {
+    const turn = () => {
+      const on = !!(document.fullscreenElement || document.webkitFullscreenElement);
+      try {
+        if (on) screen.orientation?.lock?.('landscape')?.catch?.(() => {});
+        else screen.orientation?.unlock?.();
+      } catch { /* not supported here */ }
+    };
+    document.addEventListener('fullscreenchange', turn);
+    document.addEventListener('webkitfullscreenchange', turn);
+    return () => {
+      document.removeEventListener('fullscreenchange', turn);
+      document.removeEventListener('webkitfullscreenchange', turn);
+      try { screen.orientation?.unlock?.(); } catch { /* not supported here */ }
+    };
+  }, []);
+
+  const goFull = () => {
+    const el = frame.current;
+    try { (el.requestFullscreen || el.webkitRequestFullscreen).call(el)?.catch?.(() => {}); } catch { /* use the player's own button */ }
+  };
 
   const close = useCallback(() => {
     setClosing(true);
@@ -83,7 +109,7 @@ export function VideoDialog({ video, onClose }) {
             <Icon name="close" size={20} />
           </button>
         </div>
-        <div className="vd-frame">
+        <div className="vd-frame" ref={frame}>
           <iframe
             src={src}
             title={video.title}
@@ -97,9 +123,16 @@ export function VideoDialog({ video, onClose }) {
             <Badge kind={video.by} />
             <span className="vsrc">{t('video.on', { channel: `${FSI}${video.channel}${PDI}` })}</span>
           </div>
-          <a className="btn btn-quiet" href={watch} target="_blank" rel="noopener noreferrer">
-            {t('video.watchYT')} <Icon name="external" size={16} />
-          </a>
+          <div className="vd-actions">
+            {canFull && (
+              <button type="button" className="btn" onClick={goFull}>
+                <Icon name="expand" size={17} /> {t('full.enter')}
+              </button>
+            )}
+            <a className="btn btn-quiet" href={watch} target="_blank" rel="noopener noreferrer">
+              {t('video.watchYT')} <Icon name="external" size={16} />
+            </a>
+          </div>
         </div>
       </div>
     </dialog>

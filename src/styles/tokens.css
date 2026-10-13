@@ -16,8 +16,8 @@
 
   --made-ink: #2a4bd7;
   --made-soft: #e9edfc;
-  --collected-ink: #7a5416;
-  --collected-soft: #f5eddb;
+  --picked-ink: #7a5416;
+  --picked-soft: #f5eddb;
 
   /* the three sides in the Pythagoras picture: a, b and c */
   --ga: #12806f;
@@ -61,8 +61,8 @@
     --accent-line: #34407a;
     --made-ink: #9db0ff;
     --made-soft: #1b2342;
-    --collected-ink: #e3bd69;
-    --collected-soft: #2a2417;
+    --picked-ink: #e3bd69;
+    --picked-soft: #2a2417;
     --ga: #3fcdb5;
     --gb: #f2b24c;
     --gc: #a79bff;
@@ -90,8 +90,8 @@
   --accent-line: #34407a;
   --made-ink: #9db0ff;
   --made-soft: #1b2342;
-  --collected-ink: #e3bd69;
-  --collected-soft: #2a2417;
+  --picked-ink: #e3bd69;
+  --picked-soft: #2a2417;
   --ga: #3fcdb5;
   --gb: #f2b24c;
   --gc: #a79bff;

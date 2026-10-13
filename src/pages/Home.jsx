@@ -50,7 +50,7 @@ export default function Home() {
       <Reveal as="section" className="legend" aria-labelledby="legend">
         <h2 id="legend" className="section-title">{t('home.legend')}</h2>
         <ul className="legend-list">
-          <li><Badge kind="collected" /><p>{t('home.legendCollected')}</p></li>
+          <li><Badge kind="picked" /><p>{t('home.legendPicked')}</p></li>
           <li><Badge kind="made" /><p>{t('home.legendMade')}</p></li>
         </ul>
       </Reveal>

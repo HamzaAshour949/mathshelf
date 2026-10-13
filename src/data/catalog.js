@@ -1,12 +1,12 @@
 // The shelf. Everything on the site comes from this one file.
-// `by` says who is behind a resource: 'collected' (found and chosen by Mr. Hamza Ashour)
+// `by` says who is behind a resource: 'picked' (found and chosen by Mr. Hamza: "Mr. Hamza's pick")
 // or 'made' (designed and built by Hamza Ashour).
 // Lesson names and game names stay in English in every language.
 
 export const YEARS = [7, 8, 9, 10];
 
 const video = (id, title, channel, start) => ({
-  id, title, channel, by: 'collected', ...(start ? { start } : {}),
+  id, title, channel, by: 'picked', ...(start ? { start } : {}),
 });
 
 const EMPTY = { units: [], games: [] };

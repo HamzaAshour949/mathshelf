@@ -13,10 +13,10 @@ export const STRINGS = {
     'home.pick': 'Choose your year',
     'home.soon': 'Coming soon',
     'home.legend': 'Who is behind each resource',
-    'home.legendCollected': 'Videos and other material that Mr. Hamza Ashour found, checked and chose for you.',
+    'home.legendPicked': 'Videos and other material that Mr. Hamza Ashour found, checked and picked for you.',
     'home.legendMade': 'Games and tools that Hamza Ashour designed and built himself.',
 
-    'by.collected': 'Collected by Mr. Hamza Ashour',
+    'by.picked': "Mr. Hamza's pick",
     'by.made': 'Made by Hamza Ashour',
 
     'tab.videos': 'Videos',
@@ -41,8 +41,8 @@ export const STRINGS = {
     'game.loading': 'Loading the game…',
     'game.error': 'The game could not load. Check your connection and try again.',
     'game.retry': 'Try again',
-    'game.full': 'Full screen',
-    'game.exitFull': 'Exit full screen',
+    'full.enter': 'Full screen',
+    'full.exit': 'Exit full screen',
     'game.newTab': 'Open on its own page',
 
     'nf.title': 'We could not find that page',
@@ -64,10 +64,10 @@ export const STRINGS = {
     'home.pick': 'اختر صفّك',
     'home.soon': 'قريبًا',
     'home.legend': 'من وراء كل مصدر؟',
-    'home.legendCollected': 'فيديوهات ومواد أخرى بحث عنها المستر حمزة عاشور، وراجعها، واختارها لك.',
+    'home.legendPicked': 'فيديوهات ومواد أخرى بحث عنها المستر حمزة عاشور، وراجعها، واختارها لك.',
     'home.legendMade': 'ألعاب وأدوات صمّمها حمزة عاشور وبرمجها بنفسه.',
 
-    'by.collected': 'من جمع المستر حمزة عاشور',
+    'by.picked': 'من اختيار المستر حمزة',
     'by.made': 'من تصميم حمزة عاشور',
 
     'tab.videos': 'الفيديوهات',
@@ -92,8 +92,8 @@ export const STRINGS = {
     'game.loading': 'جارٍ تحميل اللعبة…',
     'game.error': 'تعذّر تحميل اللعبة. تحقّق من اتصالك بالإنترنت وحاول مرة أخرى.',
     'game.retry': 'حاول مرة أخرى',
-    'game.full': 'ملء الشاشة',
-    'game.exitFull': 'إنهاء ملء الشاشة',
+    'full.enter': 'ملء الشاشة',
+    'full.exit': 'إنهاء ملء الشاشة',
     'game.newTab': 'فتح في صفحة مستقلة',
 
     'nf.title': 'لم نعثر على هذه الصفحة',

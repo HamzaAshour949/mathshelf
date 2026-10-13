@@ -63,7 +63,7 @@ export function GameFrame({ game }) {
       <div className="gframe-tools">
         {canFull && (
           <button type="button" className="btn btn-quiet" onClick={toggleFull}>
-            {t(full ? 'game.exitFull' : 'game.full')}
+            {t(full ? 'full.exit' : 'full.enter')}
           </button>
         )}
         <a className="btn btn-quiet" href={game.embed} target="_blank" rel="noopener">

@@ -6,7 +6,7 @@ Open it at **https://hamzaashour949.github.io/mathshelf/**
 
 Every resource says who is behind it:
 
-- **Collected by Mr. Hamza Ashour**: videos and other material he found, checked and chose for his students.
+- **Mr. Hamza's pick**: videos and other material he found, checked and picked for his students.
 - **Made by Hamza Ashour**: games and tools he designed and built himself.
 
 The site is in English and in Arabic. Lesson names and game names stay in English in both.

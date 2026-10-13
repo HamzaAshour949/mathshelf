@@ -96,7 +96,7 @@
   border-radius: 999px; font-size: .78rem; font-weight: 600; line-height: 1.4; white-space: nowrap;
 }
 :lang(ar) .badge { padding: .22rem .55rem .22rem .65rem; }
-.badge-collected { background: var(--collected-soft); color: var(--collected-ink); }
+.badge-picked { background: var(--picked-soft); color: var(--picked-ink); }
 .badge-made { background: var(--made-soft); color: var(--made-ink); }
 
 /* ---------- home ---------- */
@@ -193,10 +193,13 @@
 .vd-inner { display: grid; gap: .9rem; padding: 1rem; }
 .vd-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .vd-title { font-size: 1.02rem; font-weight: 600; line-height: 1.35; }
-.vd-frame { position: relative; aspect-ratio: 16 / 9; background: #000; border-radius: 10px; overflow: hidden; }
+/* The player never grows taller than the screen: on a phone held sideways it shrinks to fit. */
+.vd-frame { position: relative; aspect-ratio: 16 / 9; width: min(100%, calc((100dvh - 10.5rem) * 16 / 9)); margin-inline: auto; background: #000; border-radius: 10px; overflow: hidden; }
+.vd-frame:fullscreen { border-radius: 0; }
 .vd-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .vd-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; }
 .vd-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.vd-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
 
 /* games */
 .ggrid { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
