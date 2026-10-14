@@ -1,13 +1,13 @@
 import { useApp } from '../app-context.jsx';
 import { Icon } from './Icons.jsx';
 
-// Says who is behind a resource: Mr. Hamza's pick, or made by Hamza Ashour.
-export function Badge({ kind }) {
+// Every resource, the videos he found and the games he made alike, says "Mr. Hamza's pick".
+export function Badge() {
   const { t } = useApp();
   return (
-    <span className={`badge badge-${kind}`}>
-      <Icon name={kind === 'made' ? 'pencil' : 'star'} size={14} />
-      <span>{t(`by.${kind}`)}</span>
+    <span className="badge badge-picked">
+      <Icon name="star" size={14} />
+      <span>{t('by.picked')}</span>
     </span>
   );
 }
