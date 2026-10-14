@@ -226,20 +226,38 @@
 .art-tri { fill: var(--tri); stroke: var(--ink) !important; }
 .art-grid { fill: none; stroke: var(--ink-3); stroke-width: .035; opacity: .5; }
 
-/* game page chrome */
-.game-head { display: grid; gap: .9rem; margin-bottom: 1.25rem; }
-.back { display: inline-flex; align-items: center; gap: .45rem; justify-self: start; color: var(--ink-2); font-weight: 500; font-size: .95rem; padding: .3rem .1rem; transition: color var(--dur-1) var(--ease); }
-.back:hover { color: var(--accent); }
-.game-title { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
-.game-title h1 { font-size: clamp(1.9rem, 1.3rem + 2.6vw, 2.8rem); }
-.gframe { display: grid; gap: .9rem; }
-.gframe-box {
-  position: relative; width: 100%; height: clamp(32rem, 82dvh, 58rem);
-  background: #f4f5fa; border: 1px solid var(--line-2); border-radius: 14px; overflow: hidden;
+/* ---------- a game opens on a screen of its own: it fills the window, with a Back button above it ---------- */
+main.immersive { padding: 0; animation: none; }
+.gscreen {
+  position: fixed; inset: 0; z-index: 60; display: grid; grid-template-rows: auto minmax(0, 1fr);
+  background: var(--bg);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  animation: fade-in var(--dur-2) var(--ease) both;
 }
-.gframe-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.gframe-box:fullscreen { height: 100dvh; border: 0; border-radius: 0; }
-.gframe-tools { display: flex; flex-wrap: wrap; gap: .6rem; }
+.gscreen:fullscreen { padding: 0; }
+.gbar {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .6rem;
+  padding: .35rem .6rem; background: var(--surface); border-bottom: 1px solid var(--line);
+}
+.gback, .gtool {
+  display: inline-flex; align-items: center; justify-content: center; gap: .45rem; height: 2.3rem; min-width: 2.3rem;
+  border: 1px solid var(--line-2); border-radius: 999px; background: var(--surface); color: var(--ink);
+  font-size: .92rem; font-weight: 600; line-height: 1;
+  transition: background-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease), transform var(--dur-1) var(--ease);
+}
+.gback { padding-inline: .8rem .95rem; }
+.gtool { padding-inline: .6rem; color: var(--ink-2); font-weight: 500; }
+.gback:hover, .gtool:hover { background: var(--surface-2); color: var(--ink); }
+.gback:active, .gtool:active { transform: scale(.96); }
+.gtool span { display: none; }
+@media (min-width: 720px) { .gtool { padding-inline: .95rem; } .gtool span { display: inline; } }
+.gname { display: flex; align-items: center; justify-content: center; gap: .65rem; min-width: 0; }
+.gname-t { font-size: 1.1rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gname .badge { display: none; }
+@media (min-width: 640px) { .gname .badge { display: inline-flex; } }
+.gtools { display: flex; align-items: center; gap: .4rem; }
+.gstage { position: relative; min-height: 0; background: #f4f1ff; }
+.gstage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .game-loading { position: absolute; inset: 0; z-index: 1; display: grid; place-content: center; justify-items: center; gap: 1rem; padding: 1.5rem; text-align: center; background: var(--surface); color: var(--ink-3); animation: pulse 1.4s var(--ease) infinite; }
 .game-loading:has(.btn) { animation: none; color: var(--ink-2); }
 @keyframes pulse { 50% { opacity: .45; } }

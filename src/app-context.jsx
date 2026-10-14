@@ -7,11 +7,21 @@ import { CATALOG, YEARS } from './data/catalog.js';
 //   #/year/9/videos             a year's videos        #/ar/year/9/games    the same, in Arabic
 //   #/year/9/games/<game-id>    a game
 
-const subscribe = (cb) => {
-  addEventListener('hashchange', cb);
-  return () => removeEventListener('hashchange', cb);
-};
 const snapshot = () => location.hash.replace(/^#/, '') || '/';
+
+// Remembers the page we came from, so that a Back button can step back in the history
+// instead of piling a new entry on top of it.
+let here = snapshot();
+let before = null;
+const subscribe = (cb) => {
+  const on = () => {
+    const now = snapshot();
+    if (now !== here) { before = here; here = now; }
+    cb();
+  };
+  addEventListener('hashchange', on);
+  return () => removeEventListener('hashchange', on);
+};
 
 function parse(raw) {
   let p = raw.split('?')[0];
@@ -73,6 +83,13 @@ export function AppProvider({ children }) {
     [lang],
   );
 
+  // Back to a page: one step back in the history when we came from it, otherwise a normal visit.
+  const back = useCallback((to) => {
+    const was = before === null ? null : parse(before);
+    if (was && was.lang === lang && was.path === to) history.back();
+    else location.hash = href(to).slice(1);
+  }, [lang, href]);
+
   const toggleLang = useCallback(() => {
     const next = lang === 'ar' ? 'en' : 'ar';
     location.hash = next === 'ar' ? `/ar${path === '/' ? '' : path}` : path;
@@ -85,11 +102,12 @@ export function AppProvider({ children }) {
       path,
       route,
       href,
+      back,
       toggleLang,
       t: (key, vars) => format(dict[key] ?? STRINGS.en[key] ?? key, vars),
       tc: (kind, n) => count(lang, kind, n),
     };
-  }, [lang, path, route, href, toggleLang]);
+  }, [lang, path, route, href, back, toggleLang]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

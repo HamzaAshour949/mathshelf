@@ -34,13 +34,14 @@ export const STRINGS = {
     'games.pythagorean.desc':
       'Drag the small squares from the two short sides into the big square on the hypotenuse, and see that they fill it exactly.',
     'games.jelly.desc':
-      'Drag one jelly term onto another. Terms of the same kind squish together and the numbers add; different kinds bounce apart. Then try the pairs and find out which can be collected.',
+      'Ten stages, each a little harder than the last. Say Yes or No to pairs of terms, collect like terms, open locked brackets with the Expand Hammer, and finish in hard mode, where every jelly is the same colour.',
 
     'empty.title': 'Nothing here yet',
     'empty.videos': 'Videos for Year {y} will appear here.',
     'empty.games': 'Games for Year {y} will appear here.',
 
-    'game.back': 'Year {y} · Games',
+    'game.backShort': 'Back',
+    'game.backTo': 'Back to the Year {y} games',
     'game.loading': 'Loading the game…',
     'game.error': 'The game could not load. Check your connection and try again.',
     'game.retry': 'Try again',
@@ -88,13 +89,14 @@ export const STRINGS = {
     'games.pythagorean.desc':
       'اسحب المربعات الصغيرة من الضلعين القائمين إلى المربع الكبير على الوتر، وشاهد أنها تملؤه تمامًا.',
     'games.jelly.desc':
-      'اسحب حدًّا فوق حدٍّ آخر. إذا كانا من النوع نفسه يلتحمان كالجيلي وتُجمع قيمتاهما، وإذا اختلف نوعاهما يرتدّان. ثم جرّب الأزواج واكتشف أيّها يمكن جمعه.',
+      'تتكوّن اللعبة من عشر مراحل، وكل مرحلة أصعب قليلًا مما قبلها. أجب بنعم أو لا عن أزواج من الحدود، واجمع الحدود المتشابهة، وافتح الأقواس المقفلة بمطرقة فكّ الأقواس، ثم انتهِ بالوضع الصعب الذي تظهر فيه كل الحدود بلون واحد.',
 
     'empty.title': 'لا يوجد شيء هنا بعد',
     'empty.videos': 'ستظهر هنا فيديوهات Year {y}.',
     'empty.games': 'ستظهر هنا ألعاب Year {y}.',
 
-    'game.back': 'Year {y} · الألعاب',
+    'game.backShort': 'رجوع',
+    'game.backTo': 'العودة إلى ألعاب Year {y}',
     'game.loading': 'جارٍ تحميل اللعبة…',
     'game.error': 'تعذّر تحميل اللعبة. تحقّق من اتصالك بالإنترنت وحاول مرة أخرى.',
     'game.retry': 'حاول مرة أخرى',

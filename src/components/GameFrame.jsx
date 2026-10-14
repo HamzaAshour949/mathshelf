@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useApp } from '../app-context.jsx';
+import { Badge } from './Badge.jsx';
 import { Icon } from './Icons.jsx';
 
 // Warms the browser cache when someone points at, focuses or touches a game card.
@@ -7,15 +8,32 @@ export function warmGame(src) {
   try { fetch(src, { priority: 'low' }).catch(() => {}); } catch { /* not important */ }
 }
 
-// A game is one self-contained HTML file. It is shown unchanged, in a frame of its own.
-export function GameFrame({ game }) {
-  const { t } = useApp();
+const inFull = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+
+function enterFull(el) {
+  const ask = el && (el.requestFullscreen || el.webkitRequestFullscreen);
+  if (!ask) return;
+  try { Promise.resolve(ask.call(el)).catch(() => {}); } catch { /* the screen is full anyway */ }
+}
+
+function leaveFull() {
+  const out = document.exitFullscreen || document.webkitExitFullscreen;
+  if (!out || !inFull()) return;
+  try { Promise.resolve(out.call(document)).catch(() => {}); } catch { /* nothing to do */ }
+}
+
+// A game is one self-contained HTML file, shown unchanged. It opens on a screen of its own that fills the
+// whole window: a slim bar with the Back button, and the game under it. The browser's full screen is asked
+// for as well (the click or tap that opened the game allows it); where it is refused, the screen is still full.
+export function GameScreen({ year, game }) {
+  const { t, href, back } = useApp();
   const box = useRef(null);
   const [loaded, setLoaded] = useState(false);
   const [slow, setSlow] = useState(false);
   const [full, setFull] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const canFull = !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+  const list = `/year/${year}/games`;
 
   useEffect(() => {
     setLoaded(false);
@@ -24,8 +42,21 @@ export function GameFrame({ game }) {
     return () => clearTimeout(id);
   }, [attempt]);
 
+  // The page behind the game does not scroll while it is open.
   useEffect(() => {
-    const on = () => setFull(!!(document.fullscreenElement || document.webkitFullscreenElement));
+    document.documentElement.classList.add('locked');
+    return () => document.documentElement.classList.remove('locked');
+  }, []);
+
+  // Full screen as soon as the game opens, and out of it when the game closes.
+  useEffect(() => {
+    if (!inFull()) enterFull(box.current);
+    return leaveFull;
+  }, []);
+
+  useEffect(() => {
+    const on = () => setFull(inFull());
+    on();
     document.addEventListener('fullscreenchange', on);
     document.addEventListener('webkitfullscreenchange', on);
     return () => {
@@ -34,14 +65,42 @@ export function GameFrame({ game }) {
     };
   }, []);
 
-  const toggleFull = () => {
-    if (full) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
-    else (box.current.requestFullscreen || box.current.webkitRequestFullscreen).call(box.current);
+  const toggleFull = () => (inFull() ? leaveFull() : enterFull(box.current));
+
+  const onBack = (e) => {
+    // A modified click (new tab, new window) keeps the plain link; a normal click goes back.
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    leaveFull();
+    back(list);
   };
 
   return (
-    <div className="gframe">
-      <div className="gframe-box" ref={box}>
+    <div className="gscreen" ref={box}>
+      <div className="gbar">
+        <a className="gback" href={href(list)} onClick={onBack} aria-label={t('game.backTo', { y: year })}>
+          <Icon name="back" size={18} />
+          <span>{t('game.backShort')}</span>
+        </a>
+        <div className="gname">
+          <h1 className="gname-t" lang="en">{game.title}</h1>
+          <Badge kind={game.by} />
+        </div>
+        <div className="gtools">
+          {canFull && (
+            <button type="button" className="gtool" onClick={toggleFull} aria-pressed={full} aria-label={t(full ? 'full.exit' : 'full.enter')}>
+              <Icon name={full ? 'compress' : 'expand'} size={18} />
+              <span>{t(full ? 'full.exit' : 'full.enter')}</span>
+            </button>
+          )}
+          <a className="gtool" href={game.embed} target="_blank" rel="noopener" aria-label={t('game.newTab')}>
+            <Icon name="external" size={18} />
+            <span>{t('game.newTab')}</span>
+          </a>
+        </div>
+      </div>
+
+      <div className="gstage">
         {!loaded && (
           <div className="game-loading" role="status">
             {slow ? (
@@ -57,18 +116,12 @@ export function GameFrame({ game }) {
           src={game.embed}
           title={game.title}
           allow="autoplay; fullscreen; gamepad"
-          onLoad={() => setLoaded(true)}
+          onLoad={(e) => {
+            setLoaded(true);
+            // Keys and the game pad go to the game straight away.
+            try { e.currentTarget.contentWindow?.focus(); } catch { /* not important */ }
+          }}
         />
-      </div>
-      <div className="gframe-tools">
-        {canFull && (
-          <button type="button" className="btn btn-quiet" onClick={toggleFull}>
-            {t(full ? 'full.exit' : 'full.enter')}
-          </button>
-        )}
-        <a className="btn btn-quiet" href={game.embed} target="_blank" rel="noopener">
-          {t('game.newTab')} <Icon name="external" size={16} />
-        </a>
       </div>
     </div>
   );

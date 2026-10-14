@@ -35,18 +35,20 @@ function Shell() {
     document.title = name ? `${name} — Mathshelf` : 'Mathshelf';
   }, [route, lang, t, path]);
 
+  // A game takes the whole window, so it has no site header or footer around it.
+  const immersive = route.name === 'game';
   const key = `${route.name}:${route.year ?? ''}:${route.game?.id ?? ''}`;
   return (
     <>
       <a className="skip" href="#main" onClick={(e) => { e.preventDefault(); main.current?.focus(); }}>{t('skip')}</a>
-      <Header />
-      <main id="main" ref={main} tabIndex={-1} key={key} className="page">
+      {!immersive && <Header />}
+      <main id="main" ref={main} tabIndex={-1} key={key} className={immersive ? 'immersive' : 'page'}>
         {route.name === 'home' && <Home />}
         {route.name === 'year' && <Year year={route.year} tab={route.tab} />}
         {route.name === 'game' && <GamePage year={route.year} game={route.game} />}
         {route.name === 'notfound' && <NotFound />}
       </main>
-      <Footer />
+      {!immersive && <Footer />}
     </>
   );
 }
