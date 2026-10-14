@@ -16,6 +16,7 @@
       var d = document.documentElement, s = localStorage.getItem('mathshelf.theme');
       if (s === 'light' || s === 'dark') d.setAttribute('data-theme', s);
       if (location.hash.indexOf('#/ar') === 0) { d.lang = 'ar'; d.dir = 'rtl'; }
+      var m = /#(?:\/ar)?\/year\/(\d+)/.exec(location.hash); if (m) d.setAttribute('data-year', m[1]);
     } catch (e) {}
   </script>
   <style>

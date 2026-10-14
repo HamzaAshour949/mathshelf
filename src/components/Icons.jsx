@@ -46,13 +46,14 @@ export function Icon({ name, size = 18, className = '' }) {
 }
 
 export function Logo({ size = 30 }) {
+  // Four book spines, one in each year's colour.
   return (
     <svg className="logo" width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <rect className="logo-bg" width="32" height="32" rx="8" />
-      <rect x="7" y="9" width="4.5" height="14" rx="1.2" />
-      <rect x="13.75" y="6" width="4.5" height="17" rx="1.2" />
-      <rect x="20.5" y="11" width="4.5" height="12" rx="1.2" />
-      <rect x="5" y="24.5" width="22" height="1.8" rx=".9" />
+      <rect className="l7" x="2.45" y="13" width="5.5" height="12" rx=".6" />
+      <rect className="l8" x="9.65" y="6" width="5.5" height="19" rx=".6" />
+      <rect className="l9" x="16.85" y="10" width="5.5" height="15" rx=".6" />
+      <rect className="l10" x="24.05" y="3" width="5.5" height="22" rx=".6" />
+      <rect className="lbase" x="2" y="26.4" width="27.6" height="2" rx=".6" />
     </svg>
   );
 }

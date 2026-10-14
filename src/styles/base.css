@@ -39,13 +39,13 @@ h1, h2 { font-family: var(--font-serif); font-weight: 600; letter-spacing: var(-
 [lang="en"] { font-family: inherit; }
 h1[lang="en"], h2[lang="en"] { font-family: var(--font-serif); letter-spacing: var(--track); line-height: 1.12; }
 
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .wrap { width: min(100% - 2rem, 72rem); margin-inline: auto; }
 
 .skip {
   position: absolute; inset-inline-start: 1rem; top: -4rem; z-index: 50;
-  background: var(--accent); color: var(--accent-ink); padding: .6rem 1rem; border-radius: 8px;
+  background: var(--accent); color: var(--accent-ink); padding: .6rem 1rem; border-radius: var(--r-1);
   transition: top var(--dur-1) var(--ease);
 }
 .skip:focus { top: .75rem; }

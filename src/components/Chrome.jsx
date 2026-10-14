@@ -28,10 +28,13 @@ export function Header() {
     active: route.year === y,
     href: href(`/year/${y}${route.tab ? `/${route.tab}` : ''}`),
     label: (
-      <bdi lang="en">
-        <span className="yr-word">Year&nbsp;</span>
-        {y}
-      </bdi>
+      <>
+        <span className="ymark" data-year={y} aria-hidden="true" />
+        <bdi lang="en">
+          <span className="yr-word">Year&nbsp;</span>
+          {y}
+        </bdi>
+      </>
     ),
   }));
 

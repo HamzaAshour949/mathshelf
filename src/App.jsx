@@ -27,6 +27,13 @@ function Shell() {
     main.current?.focus({ preventScroll: true });
   }, [route.name, route.year, route.game?.id]);
 
+  // The page takes the colour of its year (see tokens.css); the home page stays neutral.
+  useEffect(() => {
+    const el = document.documentElement;
+    if (route.year) el.dataset.year = String(route.year);
+    else delete el.dataset.year;
+  }, [route.year]);
+
   useEffect(() => {
     const name =
       route.name === 'game' ? route.game.title
@@ -42,7 +49,7 @@ function Shell() {
     <>
       <a className="skip" href="#main" onClick={(e) => { e.preventDefault(); main.current?.focus(); }}>{t('skip')}</a>
       {!immersive && <Header />}
-      <main id="main" ref={main} tabIndex={-1} key={key} className={immersive ? 'immersive' : 'page'}>
+      <main id="main" ref={main} tabIndex={-1} key={key} className={immersive ? 'immersive' : route.name === 'year' ? 'page page-year' : 'page'}>
         {route.name === 'home' && <Home />}
         {route.name === 'year' && <Year year={route.year} tab={route.tab} />}
         {route.name === 'game' && <GamePage year={route.year} game={route.game} />}

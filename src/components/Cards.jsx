@@ -11,7 +11,7 @@ export function YearCard({ year, index }) {
   const has = s.videos + s.games > 0;
   return (
     <Reveal as="li" index={index}>
-      <a className={`card link ycard ${has ? '' : 'is-empty'}`} href={href(`/year/${year}`)}>
+      <a className={`card link ycard ${has ? '' : 'is-empty'}`} href={href(`/year/${year}`)} data-year={year}>
         <span className="y-label" lang="en">Year</span>
         <span className="y-num">{year}</span>
         <span className="y-meta">

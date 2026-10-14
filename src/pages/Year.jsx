@@ -49,7 +49,7 @@ function Videos({ year }) {
     <>
       {units.length > 1 && (
         <SegNav
-          className="unit-jump"
+          className="chips unit-jump"
           label={t('videos.units')}
           items={units.map((u) => ({
             key: u.name,
@@ -71,7 +71,7 @@ function Videos({ year }) {
             </header>
 
             <SegNav
-              className="jump"
+              className="chips jump"
               label={t('videos.jump')}
               items={unit.lessons.map((l) => ({
                 key: l.code,
@@ -120,23 +120,29 @@ export default function Year({ year, tab }) {
   const { t, tc, href } = useApp();
   const s = stats(year);
   return (
-    <div className="wrap yearpage">
-      <header className="year-head">
-        <h1 lang="en">Year {year}</h1>
-        <p className="lead">{`${tc('video', s.videos)} · ${tc('game', s.games)}`}</p>
-      </header>
+    <div className="yearpage">
+      <section className="yband" aria-labelledby="year-title">
+        <div className="wrap">
+          <header className="year-head">
+            <h1 id="year-title" lang="en">Year {year}</h1>
+            <p className="lead">{`${tc('video', s.videos)} · ${tc('game', s.games)}`}</p>
+          </header>
 
-      <SegNav
-        className="tabs"
-        label={t('tab.aria')}
-        items={[
-          { key: 'videos', active: tab === 'videos', href: href(`/year/${year}/videos`), label: <>{t('tab.videos')} <span className="count">{s.videos}</span></> },
-          { key: 'games', active: tab === 'games', href: href(`/year/${year}/games`), label: <>{t('tab.games')} <span className="count">{s.games}</span></> },
-        ]}
-      />
+          <SegNav
+            className="tabs"
+            label={t('tab.aria')}
+            items={[
+              { key: 'videos', active: tab === 'videos', href: href(`/year/${year}/videos`), label: <>{t('tab.videos')} <span className="count">{s.videos}</span></> },
+              { key: 'games', active: tab === 'games', href: href(`/year/${year}/games`), label: <>{t('tab.games')} <span className="count">{s.games}</span></> },
+            ]}
+          />
+        </div>
+      </section>
 
-      <div className="tab-body" key={tab}>
-        {tab === 'videos' ? <Videos year={year} /> : <Games year={year} />}
+      <div className="wrap">
+        <div className="tab-body" key={tab}>
+          {tab === 'videos' ? <Videos year={year} /> : <Games year={year} />}
+        </div>
       </div>
     </div>
   );
