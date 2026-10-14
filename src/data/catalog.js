@@ -423,7 +423,15 @@ export const CATALOG = {
         ],
       },
     ],
-    games: [],
+    games: [
+      {
+        id: 'jelly-terms',
+        title: 'Jelly Terms',
+        by: 'made',
+        blurb: 'games.jelly.desc',
+        embed: 'games/jelly-terms.html',
+      },
+    ],
   },
 
   /* ---------------------------------------------------------------- Year 9 */

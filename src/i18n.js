@@ -33,6 +33,8 @@ export const STRINGS = {
     'games.play': 'Play now',
     'games.pythagorean.desc':
       'Drag the small squares from the two short sides into the big square on the hypotenuse, and see that they fill it exactly.',
+    'games.jelly.desc':
+      'Drag one jelly term onto another. Terms of the same kind squish together and the numbers add; different kinds bounce apart. Then try the pairs and find out which can be collected.',
 
     'empty.title': 'Nothing here yet',
     'empty.videos': 'Videos for Year {y} will appear here.',
@@ -85,6 +87,8 @@ export const STRINGS = {
     'games.play': 'العب الآن',
     'games.pythagorean.desc':
       'اسحب المربعات الصغيرة من الضلعين القائمين إلى المربع الكبير على الوتر، وشاهد أنها تملؤه تمامًا.',
+    'games.jelly.desc':
+      'اسحب حدًّا فوق حدٍّ آخر. إذا كانا من النوع نفسه يلتحمان كالجيلي وتُجمع قيمتاهما، وإذا اختلف نوعاهما يرتدّان. ثم جرّب الأزواج واكتشف أيّها يمكن جمعه.',
 
     'empty.title': 'لا يوجد شيء هنا بعد',
     'empty.videos': 'ستظهر هنا فيديوهات Year {y}.',

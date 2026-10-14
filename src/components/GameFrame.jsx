@@ -56,7 +56,7 @@ export function GameFrame({ game }) {
           key={attempt}
           src={game.embed}
           title={game.title}
-          allow="autoplay; fullscreen"
+          allow="autoplay; fullscreen; gamepad"
           onLoad={() => setLoaded(true)}
         />
       </div>

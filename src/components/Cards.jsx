@@ -43,7 +43,31 @@ function PythagorasArt() {
   );
 }
 
-const ART = { 'pythagorean-theorem': PythagorasArt };
+// Two blue jellies melting together and a pink one next to them. Drawn once, no images to download.
+function JellyArt() {
+  return (
+    <svg className="art art-jelly" viewBox="0 0 120 100" role="img" aria-label="Two blue jelly blobs melting into one, and a pink one beside them">
+      <defs>
+        <filter id="jelly-goo" x="-30%" y="-30%" width="160%" height="160%" colorInterpolationFilters="sRGB">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b" />
+          <feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9" result="g" />
+          <feComposite in="SourceGraphic" in2="g" operator="atop" />
+        </filter>
+      </defs>
+      <g filter="url(#jelly-goo)">
+        <circle cx="38" cy="46" r="22" fill="#4f7bff" />
+        <circle cx="64" cy="50" r="19" fill="#4f7bff" />
+      </g>
+      <circle cx="94" cy="62" r="15" fill="#ff5fa2" />
+      <ellipse cx="30" cy="36" rx="7" ry="3.6" fill="#fff" opacity=".55" transform="rotate(-30 30 36)" />
+      <ellipse cx="90" cy="55" rx="4.6" ry="2.4" fill="#fff" opacity=".55" transform="rotate(-30 90 55)" />
+      <text x="48" y="56" textAnchor="middle" fontFamily="Georgia, serif" fontStyle="italic" fontWeight="700" fontSize="22" fill="#fff" stroke="#2447c9" strokeWidth="2.4" paintOrder="stroke">2x</text>
+      <text x="94" y="68" textAnchor="middle" fontFamily="Georgia, serif" fontStyle="italic" fontWeight="700" fontSize="15" fill="#fff" stroke="#c82a74" strokeWidth="2" paintOrder="stroke">y</text>
+    </svg>
+  );
+}
+
+const ART = { 'pythagorean-theorem': PythagorasArt, 'jelly-terms': JellyArt };
 
 export function GameCard({ year, game, index }) {
   const { t, href } = useApp();
