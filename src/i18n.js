@@ -13,9 +13,11 @@ export const STRINGS = {
     'home.pick': 'Choose your year',
     'home.soon': 'Coming soon',
     'home.legend': 'Who is behind each resource',
-    'home.legendPicked': 'Videos, games and other material that Mr. Hamza found, checked or made for you.',
+    'home.legendPicked': 'Videos and other material that Mr. Hamza Ashour found, checked and picked for you.',
+    'home.legendMade': 'Games and tools built and designed by Hamza Ashour.',
 
     'by.picked': "Mr. Hamza's pick",
+    'by.made': "Mr. Hamza's pick",
 
     'tab.videos': 'Videos',
     'tab.games': 'Games',
@@ -65,9 +67,11 @@ export const STRINGS = {
     'home.pick': 'اختر صفّك',
     'home.soon': 'قريبًا',
     'home.legend': 'من وراء كل مصدر؟',
-    'home.legendPicked': 'فيديوهات وألعاب ومواد أخرى بحث عنها المستر حمزة وراجعها واختارها لك، أو صمّمها بنفسه.',
+    'home.legendPicked': 'فيديوهات ومواد أخرى بحث عنها المستر حمزة عاشور، وراجعها، واختارها لك.',
+    'home.legendMade': 'ألعاب وأدوات من تصميم حمزة عاشور وبرمجته.',
 
     'by.picked': 'من اختيار المستر حمزة',
+    'by.made': 'من اختيار المستر حمزة',
 
     'tab.videos': 'الفيديوهات',
     'tab.games': 'الألعاب',
