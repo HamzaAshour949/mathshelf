@@ -73,8 +73,6 @@ const C = {
   ymxc: cognito('nUk47WSiS30', 'What on Earth is y = mx + c'),
   lineEq: cognito('ys0Dxj-jKTk', 'How to Find the Equation of a Straight Line (y = mx + c)'),
   lineEq2: cognito('UdHaBsfatxc', 'Finding the Equation of a Straight Line From 2 Sets of Coordinates'),
-  directProp: cognito('z9JlSDzSy3c', 'What Does Directly Proportional Mean?'),
-  directEq: cognito('eGKT1EFseJc', 'How to Write Algebraic Expressions for Directly Proportional Relationships'),
   ineq1: cognito('e_tY6X5PwWw', 'What are Inequalities?'),
   ineq2: cognito('u-YNzmlZWeg', 'Solving Algebraic Inequalities with 1 Inequality Sign'),
   ineq3: cognito('L_AfY1Bqosk', 'Solving Algebraic Inequalities with 2 Inequality Signs'),
@@ -123,17 +121,6 @@ export const CATALOG = {
             videos: [
               video('E1fYceXHIr4', 'Line Graphs', 'Corbettmaths'),
               video('E91bGT9BjYk', 'How to spot a misleading graph', 'TED-Ed'),
-            ],
-          },
-          {
-            code: '1.5',
-            title: 'More graphs and tables 2',
-            videos: [
-              video('TfkNkrKMF5c', 'Excel Quick and Simple Charts Tutorial', 'Technology for Teachers and Students'),
-              video('pxIDuag7Np8', 'How to Make Charts in Google Sheets for Teachers and Students', 'Jake Richards'),
-              video('o7F-tbBl_hA', 'How To Choose The Right Graph (Types of Graphs and When To Use Them)', 'UNDATABLE'),
-              video('LEXbMW-Amao', 'Drawing Bar Charts', 'Corbettmaths'),
-              video('sdMT6iasnYQ', 'Drawing Pie Charts', 'Corbettmaths'),
             ],
           },
         ],
@@ -640,19 +627,6 @@ export const CATALOG = {
               C.lineEq2,
               video('DhDtKR0VyLE', 'Writing an equation using point slope form given two points', 'Brian McLogan'),
               video('6CFE60iP2Ug', 'Standard form for linear equations', 'Khan Academy'),
-            ],
-          },
-          {
-            code: '1.4',
-            title: 'Direct Variation and Proportion',
-            videos: [C.directProp, C.directEq],
-          },
-          {
-            code: '1.5',
-            title: 'Scatter Plots and Least-Squares Lines',
-            videos: [
-              video('vg02s4CNEAg', 'Scatter Graphs: Introduction, Correlation, and Line of Best Fit', 'Minity Maths'),
-              video('sVeNrDLhgnI', 'Least Squares Regression Line on the TI83 TI84 Calculator', 'Cody Tabbert'),
             ],
           },
           {

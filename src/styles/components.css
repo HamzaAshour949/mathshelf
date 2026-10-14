@@ -62,8 +62,9 @@
 .years .seg-item { flex: 1; text-align: center; }
 .years .ink { background: var(--accent); border-color: var(--accent); }
 .years .seg-item[data-active="true"] { color: var(--accent-ink); }
-.yr-word { display: none; }
-@media (min-width: 520px) { .yr-word { display: inline; } }
+/* "Year 7", "Year 8"... on every screen: a bare number is not clear enough on a phone. */
+.years .seg-item { padding-inline: .2rem; font-size: .86rem; }
+@media (min-width: 520px) { .years .seg-item { padding-inline: 1rem; font-size: .92rem; } }
 @media (min-width: 760px) { .years { justify-self: center; } .years .seg-item { flex: 0 0 auto; padding-inline: 1.1rem; } }
 
 /* ---------- layout pieces ---------- */
