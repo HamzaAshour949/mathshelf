@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mathshelf</title>
+  <meta name="description" content="Games, videos and more for maths, for Years 7 to 10. Picked and made by Mr. Hamza Ashour.">
+  <meta name="theme-color" content="#f7f7f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Mathshelf">
+  <meta property="og:description" content="Games, videos and more for maths, for Years 7 to 10.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <script>
+    // Runs before the first paint, so the theme and the reading direction never flash.
+    try {
+      var d = document.documentElement, s = localStorage.getItem('mathshelf.theme');
+      if (s === 'light' || s === 'dark') d.setAttribute('data-theme', s);
+      if (location.hash.indexOf('#/ar') === 0) { d.lang = 'ar'; d.dir = 'rtl'; }
+      var m = /#(?:\/ar)?\/year\/(\d+)/.exec(location.hash); if (m) d.setAttribute('data-year', m[1]);
+    } catch (e) {}
+  </script>
+  <style>html{background:#f7f7f4}@media (prefers-color-scheme:dark){html:not([data-theme=light]){background:#0f1115}}html[data-theme=dark]{background:#0f1115}</style>
+  <script type="module" crossorigin src="./assets/index-DC39WihF.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BZA-dXjF.css">
+</head>
+<body>
+  <div id="root"></div>
+  <noscript>Mathshelf needs JavaScript to run.</noscript>
+</body>
+</html>
