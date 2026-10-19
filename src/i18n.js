@@ -33,6 +33,8 @@ export const STRINGS = {
     'games.play': 'Play now',
     'games.pythagorean.desc':
       'Drag the small squares from the two short sides into the big square on the hypotenuse, and see that they fill it exactly.',
+    'games.factorpop.desc':
+      'Press Split and each term breaks into its little factor faces. The angry ones are the common factors: drag them down to the solution row, press Finished, and watch the brackets pop in. Then fill in your own notebook page.',
     'games.jelly.desc':
       'Ten stages, each a little harder than the last. Say Yes or No to pairs of terms, collect like terms, open locked brackets with the Expand Hammer, and finish in hard mode, where every jelly is the same colour.',
 
@@ -88,6 +90,8 @@ export const STRINGS = {
     'games.play': 'العب الآن',
     'games.pythagorean.desc':
       'اسحب المربعات الصغيرة من الضلعين القائمين إلى المربع الكبير على الوتر، وشاهد أنها تملؤه تمامًا.',
+    'games.factorpop.desc':
+      'اضغط Split ليتحوّل كل حدّ إلى وجوه عوامله الصغيرة. الوجوه الغاضبة هي العوامل المشتركة بين الحدّين، فاسحبها إلى صف الحل ثم اضغط Finished وشاهد الأقواس تظهر. بعد ذلك أكمل صفحة الدفتر بنفسك.',
     'games.jelly.desc':
       'تتكوّن اللعبة من عشر مراحل، وكل مرحلة أصعب قليلًا مما قبلها. أجب بنعم أو لا عن أزواج من الحدود، واجمع الحدود المتشابهة، وافتح الأقواس المقفلة بمطرقة فكّ الأقواس، ثم انتهِ بالوضع الصعب الذي تظهر فيه كل الحدود بلون واحد.',
 

@@ -412,6 +412,13 @@ export const CATALOG = {
     ],
     games: [
       {
+        id: 'factor-pop',
+        title: 'Factor Pop',
+        by: 'made',
+        blurb: 'games.factorpop.desc',
+        embed: 'games/factor-pop.html',
+      },
+      {
         id: 'jelly-terms',
         title: 'Jelly Terms',
         by: 'made',

@@ -67,7 +67,35 @@ function JellyArt() {
   );
 }
 
-const ART = { 'pythagorean-theorem': PythagorasArt, 'jelly-terms': JellyArt };
+// Two tiles in the style of the game: an angry green factor with a 3 and a calm orange one with a 2, above a dashed solution row. Drawn once, no images to download.
+function FactorPopArt() {
+  const ink = '#2b1a4d';
+  return (
+    <svg className="art art-factor-pop" viewBox="0 0 120 100" role="img" aria-label="Two small characters: an angry green one with a number 3 and a calm orange one with a number 2, above a dashed row">
+      <rect x="6" y="64" width="108" height="30" rx="9" fill="#c7d2fe" fillOpacity=".28" stroke="#8f9cf5" strokeWidth="2" strokeDasharray="5 4" />
+      <g transform="translate(34 36) scale(21)">
+        <rect x="-1" y="-1.12" width="2" height="2.24" rx=".38" fill="#ffc9c0" stroke="#12b3a0" strokeWidth=".12" />
+        <ellipse cx="-.64" cy="-.36" rx=".17" ry=".11" fill="#ff4d5e" opacity=".7" /><ellipse cx=".64" cy="-.36" rx=".17" ry=".11" fill="#ff4d5e" opacity=".7" />
+        <ellipse cx="-.42" cy="-.56" rx=".13" ry=".08" fill={ink} /><ellipse cx=".42" cy="-.56" rx=".13" ry=".08" fill={ink} />
+        <path d="M-.7 -.92 L-.16 -.74 M.7 -.92 L.16 -.74" stroke={ink} strokeWidth=".14" strokeLinecap="round" fill="none" />
+        <path d="M-.28 -.18 Q0 -.4 .28 -.18" fill="none" stroke={ink} strokeWidth=".09" strokeLinecap="round" />
+        <path d="M.62 -1.14 Q.75 -1.12 .8 -1 M1.08 -1.14 Q.95 -1.12 .9 -1 M.62 -.84 Q.75 -.86 .8 -.97 M1.08 -.84 Q.95 -.86 .9 -.97" stroke="#e11d48" strokeWidth=".09" fill="none" strokeLinecap="round" />
+        <rect x="-.84" y=".14" width="1.68" height=".84" rx=".24" fill="#fff" stroke="#12b3a0" strokeWidth=".07" />
+        <text textAnchor="middle" y=".6" fontSize=".74" fontWeight="800" fill={ink} dominantBaseline="central">3</text>
+      </g>
+      <g transform="translate(86 36) scale(21)">
+        <rect x="-1" y="-1.12" width="2" height="2.24" rx=".38" fill="#ffe3da" stroke="#f26a45" strokeWidth=".12" />
+        <ellipse cx="-.64" cy="-.36" rx=".17" ry=".11" fill="#ff6fa5" opacity=".5" /><ellipse cx=".64" cy="-.36" rx=".17" ry=".11" fill="#ff6fa5" opacity=".5" />
+        <circle cx="-.42" cy="-.6" r=".13" fill={ink} /><circle cx=".42" cy="-.6" r=".13" fill={ink} />
+        <path d="M-.28 -.3 Q0 0 .28 -.3" fill="none" stroke={ink} strokeWidth=".09" strokeLinecap="round" />
+        <rect x="-.84" y=".14" width="1.68" height=".84" rx=".24" fill="#fff" stroke="#f26a45" strokeWidth=".07" />
+        <text textAnchor="middle" y=".6" fontSize=".74" fontWeight="800" fill={ink} dominantBaseline="central">2</text>
+      </g>
+    </svg>
+  );
+}
+
+const ART = { 'pythagorean-theorem': PythagorasArt, 'jelly-terms': JellyArt, 'factor-pop': FactorPopArt };
 
 export function GameCard({ year, game, index }) {
   const { t, href } = useApp();
