@@ -416,6 +416,7 @@ export const CATALOG = {
         title: 'Factor Pop',
         lesson: 'Factorising expressions',   // the browser tab and the link preview say the lesson's title
         by: 'made',
+        selfCredit: true,   // the game shows "Made by" in its own footer, so the bar above it does not repeat it
         blurb: 'games.factorpop.desc',
         embed: 'games/factor-pop.html',
       },

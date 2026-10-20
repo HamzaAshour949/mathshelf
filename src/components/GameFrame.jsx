@@ -84,7 +84,7 @@ export function GameScreen({ year, game }) {
         </a>
         <div className="gname">
           <h1 className="gname-t" lang="en">{game.title}</h1>
-          <Badge kind={game.by} />
+          {!game.selfCredit && <Badge kind={game.by} />}
         </div>
         <div className="gtools">
           {canFull && (
