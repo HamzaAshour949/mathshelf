@@ -8,6 +8,9 @@ export function warmGame(src) {
   try { fetch(src, { priority: 'low' }).catch(() => {}); } catch { /* not important */ }
 }
 
+// The game's address, with this build's id on it, so a browser always asks for the newest file.
+export const gameSrc = (game) => `${game.embed}?v=${__BUILD__}`;
+
 const inFull = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
 
 function enterFull(el) {
@@ -23,8 +26,8 @@ function leaveFull() {
 }
 
 // A game is one self-contained HTML file, shown unchanged. It opens on a screen of its own that fills the
-// whole window: a slim bar with the Back button, and the game under it. The browser's full screen is asked
-// for as well (the click or tap that opened the game allows it); where it is refused, the screen is still full.
+// whole window: a slim bar with the Back button, and the game under it. The browser's full screen is never forced:
+// it is only there if the student presses the expand button.
 export function GameScreen({ year, game }) {
   const { t, href, back } = useApp();
   const box = useRef(null);
@@ -48,11 +51,8 @@ export function GameScreen({ year, game }) {
     return () => document.documentElement.classList.remove('locked');
   }, []);
 
-  // Full screen as soon as the game opens, and out of it when the game closes.
-  useEffect(() => {
-    if (!inFull()) enterFull(box.current);
-    return leaveFull;
-  }, []);
+  // If the student chose full screen, leave it when the game closes.
+  useEffect(() => leaveFull, []);
 
   useEffect(() => {
     const on = () => setFull(inFull());
@@ -93,7 +93,7 @@ export function GameScreen({ year, game }) {
               <span>{t(full ? 'full.exit' : 'full.enter')}</span>
             </button>
           )}
-          <a className="gtool" href={game.embed} target="_blank" rel="noopener" aria-label={t('game.newTab')}>
+          <a className="gtool" href={gameSrc(game)} target="_blank" rel="noopener" aria-label={t('game.newTab')}>
             <Icon name="external" size={18} />
             <span>{t('game.newTab')}</span>
           </a>
@@ -113,7 +113,7 @@ export function GameScreen({ year, game }) {
         )}
         <iframe
           key={attempt}
-          src={game.embed}
+          src={gameSrc(game)}
           title={game.title}
           allow="autoplay; fullscreen; gamepad"
           onLoad={(e) => {
