@@ -34,7 +34,7 @@ export const STRINGS = {
     'games.pythagorean.desc':
       'Drag the small squares from the two short sides into the big square on the hypotenuse, and see that they fill it exactly.',
     'games.factorpop.desc':
-      'Grow the factor tree of each term: tap a face and type its two factors, again and again, until only primes and letters are left. Then pull the angry common factors out and press Finished.',
+      'Grow the factor tree of each term: tap a face and type one of its factors, again and again, until only primes and letters are left. Then drag the common factors down to the solution row and press Finished.',
     'games.jelly.desc':
       'Ten stages, each a little harder than the last. Say Yes or No to pairs of terms, collect like terms, open locked brackets with the Expand Hammer, and finish in hard mode, where every jelly is the same colour.',
 
@@ -91,7 +91,7 @@ export const STRINGS = {
     'games.pythagorean.desc':
       'اسحب المربعات الصغيرة من الضلعين القائمين إلى المربع الكبير على الوتر، وشاهد أنها تملؤه تمامًا.',
     'games.factorpop.desc':
-      'ابنِ شجرة العوامل لكل حدّ: المس الوجه واكتب عاملين له، وكرّر ذلك حتى لا يبقى إلا أعداد أولية وحروف. ثم اسحب العوامل المشتركة الغاضبة إلى صف الحل، واضغط Finished لتظهر الأقواس.',
+      'ابنِ شجرة العوامل لكل حدّ: المس الوجه واكتب أحد عامليه، وكرّر ذلك حتى لا يبقى إلا أعداد أولية وحروف. ثم اسحب العوامل المشتركة إلى صف الحل، واضغط Finished لتظهر الأقواس.',
     'games.jelly.desc':
       'تتكوّن اللعبة من عشر مراحل، وكل مرحلة أصعب قليلًا مما قبلها. أجب بنعم أو لا عن أزواج من الحدود، واجمع الحدود المتشابهة، وافتح الأقواس المقفلة بمطرقة فكّ الأقواس، ثم انتهِ بالوضع الصعب الذي تظهر فيه كل الحدود بلون واحد.',
 
