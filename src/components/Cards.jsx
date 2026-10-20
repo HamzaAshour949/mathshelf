@@ -81,7 +81,7 @@ function FactorPopArt() {
         <path d="M-.28 -.18 Q0 -.4 .28 -.18" fill="none" stroke={ink} strokeWidth=".09" strokeLinecap="round" />
         <path d="M.62 -1.14 Q.75 -1.12 .8 -1 M1.08 -1.14 Q.95 -1.12 .9 -1 M.62 -.84 Q.75 -.86 .8 -.97 M1.08 -.84 Q.95 -.86 .9 -.97" stroke="#e11d48" strokeWidth=".09" fill="none" strokeLinecap="round" />
         <rect x="-.84" y=".14" width="1.68" height=".84" rx=".24" fill="#fff" stroke="#12b3a0" strokeWidth=".07" />
-        <text textAnchor="middle" y=".6" fontSize=".74" fontWeight="800" fill={ink} dominantBaseline="central">3</text>
+        <text textAnchor="middle" y=".826" fontSize=".74" fontWeight="800" fill={ink}>3</text>
       </g>
       <g transform="translate(86 36) scale(21)">
         <rect x="-1" y="-1.12" width="2" height="2.24" rx=".38" fill="#ffe3da" stroke="#f26a45" strokeWidth=".12" />
@@ -89,7 +89,7 @@ function FactorPopArt() {
         <circle cx="-.42" cy="-.6" r=".13" fill={ink} /><circle cx=".42" cy="-.6" r=".13" fill={ink} />
         <path d="M-.28 -.3 Q0 0 .28 -.3" fill="none" stroke={ink} strokeWidth=".09" strokeLinecap="round" />
         <rect x="-.84" y=".14" width="1.68" height=".84" rx=".24" fill="#fff" stroke="#f26a45" strokeWidth=".07" />
-        <text textAnchor="middle" y=".6" fontSize=".74" fontWeight="800" fill={ink} dominantBaseline="central">2</text>
+        <text textAnchor="middle" y=".826" fontSize=".74" fontWeight="800" fill={ink}>2</text>
       </g>
     </svg>
   );
