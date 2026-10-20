@@ -414,6 +414,7 @@ export const CATALOG = {
       {
         id: 'factor-pop',
         title: 'Factor Pop',
+        lesson: 'Factorising expressions',   // the browser tab and the link preview say the lesson's title
         by: 'made',
         blurb: 'games.factorpop.desc',
         embed: 'games/factor-pop.html',

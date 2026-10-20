@@ -36,7 +36,7 @@ function Shell() {
 
   useEffect(() => {
     const name =
-      route.name === 'game' ? route.game.title
+      route.name === 'game' ? (route.game.lesson || route.game.title)
         : route.name === 'year' ? `Year ${route.year} · ${t(`tab.${route.tab}`)}`
           : route.name === 'notfound' ? t('nf.title') : '';
     document.title = name ? `${name} — Mathshelf` : 'Mathshelf';
